@@ -1,12 +1,12 @@
 package fluff.math._int.matrix;
 
-public class IntMat3 extends AbstractIntMatrix3<IntMat3> {
+public class Mat3i extends AbstractIntMatrix3<Mat3i> {
 	
-	public IntMat3(int[][][] m) {
+	public Mat3i(int[][][] m) {
 		this.m = m;
 	}
 	
-	public IntMat3(IntMat3 mat) {
+	public Mat3i(Mat3i mat) {
 		int[][][] m = new int[mat.m.length][mat.m[0].length][mat.m[0][0].length];
 		for (int i = 0; i < m.length; i++) {
 			for (int j = 0; j < m[0].length; j++) {
@@ -19,7 +19,7 @@ public class IntMat3 extends AbstractIntMatrix3<IntMat3> {
 	}
 	
 	@Override
-	public IntMat3 copy() {
-		return new IntMat3(this);
+	public Mat3i copy() {
+		return new Mat3i(this);
 	}
 }

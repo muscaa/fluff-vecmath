@@ -3,7 +3,7 @@ plugins {
     id "maven-publish"
 }
 
-group = "com.github.muscaa"
+group "com.github.muscaa"
 version = "1.0.0"
 
 repositories {
@@ -12,6 +12,7 @@ repositories {
 }
 
 dependencies {
+	
 }
 
 java {

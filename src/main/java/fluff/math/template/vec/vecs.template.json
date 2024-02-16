@@ -1,0 +1,97 @@
+{
+	"include": [
+		"INumberVec.java",
+		"AbstractNumberVec2.java",
+		"AbstractNumberVec3.java",
+		"AbstractNumberVec4.java",
+		"Vec2n.java",
+		"Vec3n.java",
+		"Vec4n.java"
+	],
+	"generate": [
+		{
+			"from": "number",
+			"to": [
+				"int",
+				"long",
+				"float",
+				"double"
+			]
+		}
+	],
+	"define": [
+		{
+			"from": "public",
+			"to": "public"
+		}
+	],
+	"define_if": [
+		[
+			"long_name",
+			"short_name"
+		],
+		{
+			"if": "/*number*/",
+			"equals": "int",
+			"then": [
+				"Int",
+				"i"
+			]
+		},
+		{
+			"if": "/*number*/",
+			"equals": "long",
+			"then": [
+				"Long",
+				"l"
+			]
+		},
+		{
+			"if": "/*number*/",
+			"equals": "float",
+			"then": [
+				"Float",
+				"f"
+			]
+		},
+		{
+			"if": "/*number*/",
+			"equals": "double",
+			"then": [
+				"Double",
+				"d"
+			]
+		}
+	],
+	"replace": [
+		{
+			"from": "INumberVec",
+			"to": "I/*long_name*/Vec"
+		},
+		{
+			"from": "AbstractNumberVec2",
+			"to": "Abstract/*long_name*/Vec2"
+		},
+		{
+			"from": "AbstractNumberVec3",
+			"to": "Abstract/*long_name*/Vec3"
+		},
+		{
+			"from": "AbstractNumberVec4",
+			"to": "Abstract/*long_name*/Vec4"
+		},
+		{
+			"from": "Vec2n",
+			"to": "Vec2/*short_name*/"
+		},
+		{
+			"from": "Vec3n",
+			"to": "Vec3/*short_name*/"
+		},
+		{
+			"from": "Vec4n",
+			"to": "Vec4/*short_name*/"
+		}
+	],
+	"destination": "gen/_/*number*//vec"
+}

@@ -1,8 +1,8 @@
-package fluff.math.template.vec;
+package fluff.math.template.size;
 
-import fluff.math.IVec;
+import fluff.math.ISize;
 
-public interface INumberVec<V extends INumberVec<V>> extends IVec<V> {
+public interface INumberSize<V extends INumberSize<V>> extends ISize<V> {
 	
 	V add(/*number*/int val);
 	

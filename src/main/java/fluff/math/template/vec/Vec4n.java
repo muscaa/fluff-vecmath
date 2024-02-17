@@ -1,6 +1,6 @@
 package fluff.math.template.vec;
 
-/*public*/ class Vec4n extends AbstractNumberVec4<Vec4n> {
+public class Vec4n extends AbstractNumberVec4<Vec4n> {
 	
 	public /*number*/int x;
 	public /*number*/int y;

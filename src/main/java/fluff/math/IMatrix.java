@@ -8,8 +8,6 @@ public interface IMatrix<V extends IMatrix<V>> {
 	
 	V multiply(V mat);
 	
-	V divide(V mat);
-	
 	V abs();
 	
 	V negate();

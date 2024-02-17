@@ -1,6 +1,6 @@
 package fluff.math.template.vec;
 
-/*public*/ abstract class AbstractNumberVec4<V extends AbstractNumberVec4<V>> implements INumberVec<V> {
+public abstract class AbstractNumberVec4<V extends AbstractNumberVec4<V>> implements INumberVec<V> {
 	
 	protected abstract /*number*/int getX();
 	
@@ -161,10 +161,10 @@ package fluff.math.template.vec;
 	@Override
 	public int hashCode() {
 		long bits = 1L;
-		bits = 31L * bits + getX();
-		bits = 31L * bits + getY();
-		bits = 31L * bits + getZ();
-		bits = 31L * bits + getW();
+		bits = 31L * bits /*convert_x*/;
+		bits = 31L * bits /*convert_y*/;
+		bits = 31L * bits /*convert_z*/;
+		bits = 31L * bits /*convert_w*/;
 		return (int) (bits ^ bits >> 32);
 	}
 }

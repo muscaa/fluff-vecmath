@@ -9,14 +9,16 @@ repositories {
 }
 
 dependencies {
-	//implementation ":fluff-core"
-
 	implementation "com.github.muscaa:fluff-core:1.0.4"
 }
 
 java {
 	withSourcesJar()
 	withJavadocJar()
+}
+
+compileJava {
+    exclude "fluff/math/template/**"
 }
 
 publishing {

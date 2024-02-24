@@ -4,7 +4,7 @@
 
 ## Description
 
-A simple math library for Java using the Fluff Core API.
+A simple math library.<br>
 **Notice**: Not a finished product.
 
 ### Features

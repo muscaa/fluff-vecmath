@@ -1,33 +1,32 @@
-# Fluff Math
+# Fluff Vector Math
 
-[![](https://jitpack.io/v/muscaa/fluff-math.svg)](https://jitpack.io/#muscaa/fluff-math) [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![](https://jitpack.io/v/muscaa/fluff-vecmath.svg)](https://jitpack.io/#muscaa/fluff-vecmath)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Description
 
-A simple math library.<br>
-**Notice**: Not a finished product.
+A library that provides essential operations and utilities for handling vectors and matrices.
 
-### Features
-
-- Vectors
-- Matrices
-- Geometry
 
 ## Usage
 
-To integrate it into your project, add the following dependency:
-
-**Gradle**
+<details>
+<summary>Gradle</summary>
+    
 ```gradle
 repositories {
     maven { url "https://jitpack.io" }
 }
 
 dependencies {
-    implementation "com.github.muscaa:fluff-math:VERSION"
+    implementation "com.github.muscaa:fluff-vecmath:VERSION"
 }
 ```
-**Maven**
+</details>
+
+<details>
+<summary>Maven</summary>
+    
 ```xml
 <repositories>
     <repository>
@@ -39,42 +38,11 @@ dependencies {
 <dependencies>
     <dependency>
         <groupId>com.github.muscaa</groupId>
-        <artifactId>fluff-math</artifactId>
+        <artifactId>fluff-vecmath</artifactId>
         <version>VERSION</version>
     </dependency>
 </dependencies>
 ```
-Replace `VERSION` with the latest release available on [JitPack](https://jitpack.io/#muscaa/fluff-math).
+</details>
 
-## Examples
-
-```java
-Vec2i vec1 = new Vec2i(2, 3); // 2D int vector
-Vec2i vec2 = new Vec2i(3, 4);
-vec1.add(vec2);
-
-System.out.println(vec1); // (5, 7)
-
-Mat2d mat1 = new Mat2d(new double[][] { // 2D double matrix
-    {
-        1.0,  1.0,  1.0
-    },
-    {
-        2.0,  2.0,  2.0
-    }
-});
-Mat2d mat2 = new Mat2d(new double[][] {
-    {
-        1.0,  2.0
-    },
-    {
-        1.0,  2.0
-    },
-    {
-        1.0,  2.0
-    }
-});
-mat1.multiply(mat2);
-
-System.out.println(mat1); // [(3.0, 6.0), (6.0, 12.0)]
-```
+Replace `VERSION` with the latest release available on [JitPack](https://jitpack.io/#muscaa/fluff-vecmath).

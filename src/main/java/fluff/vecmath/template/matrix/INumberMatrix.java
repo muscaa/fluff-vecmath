@@ -11,4 +11,6 @@ public interface INumberMatrix<V extends INumberMatrix<V>> extends IMatrix<V> {
 	void multiply(/*number*/double scalar);
 	
 	void divide(/*number*/double scalar);
+	
+	/*number*/double determinant();
 }

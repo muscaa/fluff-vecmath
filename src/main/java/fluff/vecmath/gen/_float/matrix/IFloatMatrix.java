@@ -11,4 +11,6 @@ public interface IFloatMatrix<V extends IFloatMatrix<V>> extends IMatrix<V> {
 	void multiply(float scalar);
 	
 	void divide(float scalar);
+	
+	float determinant();
 }

@@ -131,6 +131,55 @@ public abstract class AbstractLongMatrix<V extends AbstractLongMatrix<V>> implem
 	}
 	
 	@Override
+	public void crossMultiply(V mat) {
+        long [][] newMatrix = new long [getRows()][mat.getColumns()];
+        
+        for (int i = 0; i < getRows(); i++) {
+            for (int j = 0; j < mat.getColumns(); j++) {
+                for (int k = 0; k < getColumns(); k++) {
+                	newMatrix[i][j] += get(i, k) * mat.get(k, j);
+                }
+            }
+        }
+        
+        set(newMatrix);
+	}
+	
+	@Override
+	public void invert() {
+	}
+	
+	@Override
+	public long determinant() {
+		if (!isSquare()) return 0;
+		int n = getRows();
+		long [][] copy = new long [n][n];
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				copy[i][j] = get(i, j);
+			}
+		}
+		
+		for (int k = 0; k < n - 1; k++) {
+			for (int i = k + 1; i < n; i++) {
+				for (int j = k + 1; j < n; j++) {
+					long pivot = k != 0 ? copy[k - 1][k - 1] : 1;
+					
+					copy[i][j] = copy[i][j] * copy[k][k] - copy[i][k] * copy[k][j];
+					copy[i][j] /= pivot;
+				}
+			}
+		}
+		
+		return copy[n - 1][n - 1];
+	}
+	
+	@Override
+	public int rank() {
+		return 0;
+	}
+	
+	@Override
 	public void absolute() {
 		for (int i = 0; i < getRows(); i++) {
 			for (int j = 0; j < getColumns(); j++) {
@@ -163,6 +212,11 @@ public abstract class AbstractLongMatrix<V extends AbstractLongMatrix<V>> implem
 		}
 		
 		set(newMatrix);
+	}
+	
+	@Override
+	public boolean isSquare() {
+		return getRows() == getColumns();
 	}
 	
 	@Override

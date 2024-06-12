@@ -11,4 +11,6 @@ public interface IIntMatrix<V extends IIntMatrix<V>> extends IMatrix<V> {
 	void multiply(int scalar);
 	
 	void divide(int scalar);
+	
+	int determinant();
 }

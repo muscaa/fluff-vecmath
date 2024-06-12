@@ -11,4 +11,6 @@ public interface IDoubleMatrix<V extends IDoubleMatrix<V>> extends IMatrix<V> {
 	void multiply(double scalar);
 	
 	void divide(double scalar);
+	
+	double determinant();
 }

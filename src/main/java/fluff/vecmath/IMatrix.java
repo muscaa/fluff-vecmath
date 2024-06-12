@@ -10,11 +10,19 @@ public interface IMatrix<V extends IMatrix<V>> extends IMath<V> {
 	
 	void divide(V mat);
 	
+	void crossMultiply(V mat);
+	
+	void invert();
+	
+	int rank();
+	
 	void absolute();
 	
 	void negate();
 	
 	void transpose();
+	
+	boolean isSquare();
 	
 	int getRows();
 	

@@ -131,6 +131,55 @@ public abstract class AbstractNumberMatrix<V extends AbstractNumberMatrix<V>> im
 	}
 	
 	@Override
+	public void crossMultiply(V mat) {
+        /*number*/double [][] newMatrix = new /*number*/double [getRows()][mat.getColumns()];
+        
+        for (int i = 0; i < getRows(); i++) {
+            for (int j = 0; j < mat.getColumns(); j++) {
+                for (int k = 0; k < getColumns(); k++) {
+                	newMatrix[i][j] += get(i, k) * mat.get(k, j);
+                }
+            }
+        }
+        
+        set(newMatrix);
+	}
+	
+	@Override
+	public void invert() {
+	}
+	
+	@Override
+	public /*number*/double determinant() {
+		if (!isSquare()) return 0;
+		int n = getRows();
+		/*number*/double [][] copy = new /*number*/double [n][n];
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < n; j++) {
+				copy[i][j] = get(i, j);
+			}
+		}
+		
+		for (int k = 0; k < n - 1; k++) {
+			for (int i = k + 1; i < n; i++) {
+				for (int j = k + 1; j < n; j++) {
+					/*number*/double pivot = k != 0 ? copy[k - 1][k - 1] : 1;
+					
+					copy[i][j] = copy[i][j] * copy[k][k] - copy[i][k] * copy[k][j];
+					copy[i][j] /= pivot;
+				}
+			}
+		}
+		
+		return copy[n - 1][n - 1];
+	}
+	
+	@Override
+	public int rank() {
+		return 0;
+	}
+	
+	@Override
 	public void absolute() {
 		for (int i = 0; i < getRows(); i++) {
 			for (int j = 0; j < getColumns(); j++) {
@@ -163,6 +212,11 @@ public abstract class AbstractNumberMatrix<V extends AbstractNumberMatrix<V>> im
 		}
 		
 		set(newMatrix);
+	}
+	
+	@Override
+	public boolean isSquare() {
+		return getRows() == getColumns();
 	}
 	
 	@Override

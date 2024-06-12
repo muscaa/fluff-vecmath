@@ -11,4 +11,6 @@ public interface ILongMatrix<V extends ILongMatrix<V>> extends IMatrix<V> {
 	void multiply(long scalar);
 	
 	void divide(long scalar);
+	
+	long determinant();
 }

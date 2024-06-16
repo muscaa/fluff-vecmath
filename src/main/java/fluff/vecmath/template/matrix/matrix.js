@@ -1,7 +1,7 @@
 function init() {
 	include("INumberMatrix.java");
 	include("AbstractNumberMatrix.java");
-	include("Matn.java");
+	include("Mat33n.java");
 	
 	generate("number", [ "int", "float", "long", "double" ]);
 }
@@ -36,7 +36,7 @@ function loop() {
 	replace("fluff.vecmath.template", `fluff.vecmath.gen._${number}`);
 	replace("INumberMatrix", `I${get(c[0])}Matrix`);
 	replace("AbstractNumberMatrix", `Abstract${get(c[0])}Matrix`);
-	replace("Matn", `Mat${get(c[1])}`);
+	replace("Mat33n", `Mat33${get(c[1])}`);
 	
 	destination(`gen/_${number}/matrix`);
 }

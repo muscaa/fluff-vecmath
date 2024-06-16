@@ -14,18 +14,6 @@ public abstract class AbstractDoubleMatrix<V extends AbstractDoubleMatrix<V>> im
 		get()[row][column] = value;
 	}
 	
-	public void resize(int rowOff, int columnOff, int rows, int columns) {
-		double [][] newMatrix = new double [rows][columns];
-		
-		for (int i = 0; i < rows; i++, rowOff++) {
-			for (int j = 0; j < columns; j++, columnOff++) {
-				newMatrix[i][j] = rowOff < getRows() && columnOff < getColumns() ? get(rowOff, columnOff) : 0;
-			}
-		}
-		
-		set(newMatrix);
-	}
-	
 	public boolean isSameSize(AbstractDoubleMatrix<V> mat) {
 		return getRows() == mat.getRows() && getColumns() == mat.getColumns();
 	}
@@ -146,40 +134,6 @@ public abstract class AbstractDoubleMatrix<V extends AbstractDoubleMatrix<V>> im
 	}
 	
 	@Override
-	public void invert() {
-	}
-	
-	@Override
-	public double determinant() {
-		if (!isSquare()) return 0;
-		int n = getRows();
-		double [][] copy = new double [n][n];
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
-				copy[i][j] = get(i, j);
-			}
-		}
-		
-		for (int k = 0; k < n - 1; k++) {
-			for (int i = k + 1; i < n; i++) {
-				for (int j = k + 1; j < n; j++) {
-					double pivot = k != 0 ? copy[k - 1][k - 1] : 1;
-					
-					copy[i][j] = copy[i][j] * copy[k][k] - copy[i][k] * copy[k][j];
-					copy[i][j] /= pivot;
-				}
-			}
-		}
-		
-		return copy[n - 1][n - 1];
-	}
-	
-	@Override
-	public int rank() {
-		return 0;
-	}
-	
-	@Override
 	public void absolute() {
 		for (int i = 0; i < getRows(); i++) {
 			for (int j = 0; j < getColumns(); j++) {
@@ -217,6 +171,16 @@ public abstract class AbstractDoubleMatrix<V extends AbstractDoubleMatrix<V>> im
 	@Override
 	public boolean isSquare() {
 		return getRows() == getColumns();
+	}
+	
+	@Override
+	public int getRows() {
+		return get().length;
+	}
+	
+	@Override
+	public int getColumns() {
+		return get()[0].length;
 	}
 	
 	@Override

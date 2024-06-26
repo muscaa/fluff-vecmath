@@ -14,8 +14,6 @@ public interface IMatrix<V extends IMatrix<V>> extends IMath<V> {
 	
 	void invert();
 	
-	int rank();
-	
 	void absolute();
 	
 	void negate();

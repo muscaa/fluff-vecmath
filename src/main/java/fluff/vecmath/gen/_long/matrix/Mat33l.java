@@ -1,5 +1,7 @@
 package fluff.vecmath.gen._long.matrix;
 
+import fluff.vecmath.MathException;
+
 public class Mat33l extends AbstractLongMatrix<Mat33l> {
 	
 	protected long [][] matrix;
@@ -41,6 +43,21 @@ public class Mat33l extends AbstractLongMatrix<Mat33l> {
 	
 	@Override
 	public void invert() {
+		long det = determinant();
+		if (det == 0) throw new MathException("Matrix is not invertible!");
+		
+		long [][] inv = new long [3][3];
+	    inv[0][0] = (get(1, 1) * get(2, 2) - get(1, 2) * get(2, 1)) / det;
+	    inv[0][1] = (get(0, 2) * get(2, 1) - get(0, 1) * get(2, 2)) / det;
+	    inv[0][2] = (get(0, 1) * get(1, 2) - get(0, 2) * get(1, 1)) / det;
+	    inv[1][0] = (get(1, 2) * get(2, 0) - get(1, 0) * get(2, 2)) / det;
+	    inv[1][1] = (get(0, 0) * get(2, 2) - get(0, 2) * get(2, 0)) / det;
+	    inv[1][2] = (get(0, 2) * get(1, 0) - get(0, 0) * get(1, 2)) / det;
+	    inv[2][0] = (get(1, 0) * get(2, 1) - get(1, 1) * get(2, 0)) / det;
+	    inv[2][1] = (get(0, 1) * get(2, 0) - get(0, 0) * get(2, 1)) / det;
+	    inv[2][2] = (get(0, 0) * get(1, 1) - get(0, 1) * get(1, 0)) / det;
+	    
+	    set(inv);
 	}
 	
 	@Override
@@ -52,11 +69,6 @@ public class Mat33l extends AbstractLongMatrix<Mat33l> {
 				get(1, 2) * get(2, 1) * get(0, 0) -
 				get(0, 1) * get(1, 0) * get(2, 2)
 				;
-	}
-	
-	@Override
-	public int rank() {
-		return 0;
 	}
 	
 	@Override

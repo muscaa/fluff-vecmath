@@ -2,13 +2,38 @@ package fluff.vecmath.gen._float.vector;
 
 import fluff.vecmath.IVector;
 
+/**
+ * Interface for a vector with operations that involve both vectors and scalar values.
+ *
+ * @param <V> the type of the vector
+ */
 public interface IFloatVector<V extends IFloatVector<V>> extends IVector<V> {
-	
-	void add(float scalar);
-	
-	void subtract(float scalar);
-	
-	void multiply(float scalar);
-	
-	void divide(float scalar);
+    
+    /**
+     * Adds a scalar value to this vector.
+     *
+     * @param scalar the scalar value to add
+     */
+    void add(float scalar);
+    
+    /**
+     * Subtracts a scalar value from this vector.
+     *
+     * @param scalar the scalar value to subtract
+     */
+    void subtract(float scalar);
+    
+    /**
+     * Multiplies this vector by a scalar value.
+     *
+     * @param scalar the scalar value to multiply by
+     */
+    void multiply(float scalar);
+    
+    /**
+     * Divides this vector by a scalar value.
+     *
+     * @param scalar the scalar value to divide by
+     */
+    void divide(float scalar);
 }

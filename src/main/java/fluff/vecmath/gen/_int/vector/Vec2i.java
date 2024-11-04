@@ -45,9 +45,10 @@ public class Vec2i extends AbstractIntVec2<Vec2i> {
     }
     
     @Override
-    protected void set(int proj_1, int proj_2) {
+    protected Vec2i set(int proj_1, int proj_2) {
         this.x = proj_1;
         this.y = proj_2;
+        return this;
     }
     
     @Override

@@ -27,68 +27,69 @@ public abstract class AbstractFloatVec2<V extends AbstractFloatVec2<V>> implemen
      *
      * @param proj_1 the value to set for the first component
      * @param proj_2 the value to set for the second component
+     * @return this vector
      */
-    protected abstract void set(float proj_1, float proj_2);
+    protected abstract V set(float proj_1, float proj_2);
     
     @Override
-    public void add(float scalar) {
-        set(
+    public V add(float scalar) {
+        return set(
                 proj_1() + scalar,
                 proj_2() + scalar
                 );
     }
     
     @Override
-    public void subtract(float scalar) {
-        set(
+    public V subtract(float scalar) {
+        return set(
                 proj_1() - scalar,
                 proj_2() - scalar
                 );
     }
     
     @Override
-    public void multiply(float scalar) {
-        set(
+    public V multiply(float scalar) {
+        return set(
                 proj_1() * scalar,
                 proj_2() * scalar
                 );
     }
     
     @Override
-    public void divide(float scalar) {
-        set(
+    public V divide(float scalar) {
+        return set(
                 proj_1() / scalar,
                 proj_2() / scalar
                 );
     }
     
     @Override
-    public void add(V vec) {
-        set(
+    public V add(V vec) {
+        return set(
                 proj_1() + vec.proj_1(),
                 proj_2() + vec.proj_2()
                 );
     }
     
     @Override
-    public void subtract(V vec) {
-        set(
+    public V subtract(V vec) {
+        return set(
                 proj_1() - vec.proj_1(),
                 proj_2() - vec.proj_2()
                 );
     }
     
     @Override
-    public void multiply(V vec) {
-        set(
+    public V multiply(V vec) {
+        return set(
                 proj_1() * vec.proj_1(),
                 proj_2() * vec.proj_2()
                 );
     }
     
     @Override
-    public void divide(V vec) {
-        set(
+    public V divide(V vec) {
+        return set(
                 proj_1() / vec.proj_1(),
                 proj_2() / vec.proj_2()
                 );
@@ -102,16 +103,16 @@ public abstract class AbstractFloatVec2<V extends AbstractFloatVec2<V>> implemen
     }
     
     @Override
-    public void absolute() {
-        set(
+    public V absolute() {
+        return set(
                 Math.abs(proj_1()),
                 Math.abs(proj_2())
                 );
     }
     
     @Override
-    public void negate() {
-        set(
+    public V negate() {
+        return set(
                 -proj_1(),
                 -proj_2()
                 );
@@ -126,11 +127,11 @@ public abstract class AbstractFloatVec2<V extends AbstractFloatVec2<V>> implemen
     }
     
     @Override
-    public void normalise() {
+    public V normalise() {
         double mag = magnitude();
-        if (mag == 0.0) return;
+        if (mag == 0.0) return (V) this;
         
-        set(
+        return set(
                 (float ) (proj_1() / mag),
                 (float ) (proj_2() / mag)
                 );

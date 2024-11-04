@@ -13,27 +13,31 @@ public interface IFloatVector<V extends IFloatVector<V>> extends IVector<V> {
      * Adds a scalar value to this vector.
      *
      * @param scalar the scalar value to add
+     * @return this vector
      */
-    void add(float scalar);
+    V add(float scalar);
     
     /**
      * Subtracts a scalar value from this vector.
      *
      * @param scalar the scalar value to subtract
+     * @return this vector
      */
-    void subtract(float scalar);
+    V subtract(float scalar);
     
     /**
      * Multiplies this vector by a scalar value.
      *
      * @param scalar the scalar value to multiply by
+     * @return this vector
      */
-    void multiply(float scalar);
+    V multiply(float scalar);
     
     /**
      * Divides this vector by a scalar value.
      *
      * @param scalar the scalar value to divide by
+     * @return this vector
      */
-    void divide(float scalar);
+    V divide(float scalar);
 }

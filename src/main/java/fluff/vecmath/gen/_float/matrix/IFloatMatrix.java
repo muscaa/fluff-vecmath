@@ -13,29 +13,33 @@ public interface IFloatMatrix<V extends IFloatMatrix<V>> extends IMatrix<V> {
      * Adds the specified scalar to each element of this matrix.
      *
      * @param scalar the scalar value to be added
+     * @return this matrix
      */
-    void add(float scalar);
+    V add(float scalar);
     
     /**
      * Subtracts the specified scalar from each element of this matrix.
      *
      * @param scalar the scalar value to be subtracted
+     * @return this matrix
      */
-    void subtract(float scalar);
+    V subtract(float scalar);
     
     /**
      * Multiplies each element of this matrix by the specified scalar.
      *
      * @param scalar the scalar value to multiply
+     * @return this matrix
      */
-    void multiply(float scalar);
+    V multiply(float scalar);
     
     /**
      * Divides each element of this matrix by the specified scalar.
      *
      * @param scalar the scalar value to divide
+     * @return this matrix
      */
-    void divide(float scalar);
+    V divide(float scalar);
     
     /**
      * Computes the determinant of this matrix.

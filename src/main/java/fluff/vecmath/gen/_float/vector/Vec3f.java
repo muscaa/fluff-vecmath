@@ -56,10 +56,11 @@ public class Vec3f extends AbstractFloatVec3<Vec3f> {
     }
     
     @Override
-    protected void set(float proj_1, float proj_2, float proj_3) {
+    protected Vec3f set(float proj_1, float proj_2, float proj_3) {
         this.x = proj_1;
         this.y = proj_2;
         this.z = proj_3;
+        return this;
     }
     
     @Override

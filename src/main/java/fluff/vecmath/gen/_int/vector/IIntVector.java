@@ -13,27 +13,31 @@ public interface IIntVector<V extends IIntVector<V>> extends IVector<V> {
      * Adds a scalar value to this vector.
      *
      * @param scalar the scalar value to add
+     * @return this vector
      */
-    void add(int scalar);
+    V add(int scalar);
     
     /**
      * Subtracts a scalar value from this vector.
      *
      * @param scalar the scalar value to subtract
+     * @return this vector
      */
-    void subtract(int scalar);
+    V subtract(int scalar);
     
     /**
      * Multiplies this vector by a scalar value.
      *
      * @param scalar the scalar value to multiply by
+     * @return this vector
      */
-    void multiply(int scalar);
+    V multiply(int scalar);
     
     /**
      * Divides this vector by a scalar value.
      *
      * @param scalar the scalar value to divide by
+     * @return this vector
      */
-    void divide(int scalar);
+    V divide(int scalar);
 }

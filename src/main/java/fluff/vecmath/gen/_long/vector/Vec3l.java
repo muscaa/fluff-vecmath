@@ -56,10 +56,11 @@ public class Vec3l extends AbstractLongVec3<Vec3l> {
     }
     
     @Override
-    protected void set(long proj_1, long proj_2, long proj_3) {
+    protected Vec3l set(long proj_1, long proj_2, long proj_3) {
         this.x = proj_1;
         this.y = proj_2;
         this.z = proj_3;
+        return this;
     }
     
     @Override

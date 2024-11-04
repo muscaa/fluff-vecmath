@@ -56,10 +56,11 @@ public class Vec3i extends AbstractIntVec3<Vec3i> {
     }
     
     @Override
-    protected void set(int proj_1, int proj_2, int proj_3) {
+    protected Vec3i set(int proj_1, int proj_2, int proj_3) {
         this.x = proj_1;
         this.y = proj_2;
         this.z = proj_3;
+        return this;
     }
     
     @Override

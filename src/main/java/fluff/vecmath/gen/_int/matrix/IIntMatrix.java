@@ -13,29 +13,33 @@ public interface IIntMatrix<V extends IIntMatrix<V>> extends IMatrix<V> {
      * Adds the specified scalar to each element of this matrix.
      *
      * @param scalar the scalar value to be added
+     * @return this matrix
      */
-    void add(int scalar);
+    V add(int scalar);
     
     /**
      * Subtracts the specified scalar from each element of this matrix.
      *
      * @param scalar the scalar value to be subtracted
+     * @return this matrix
      */
-    void subtract(int scalar);
+    V subtract(int scalar);
     
     /**
      * Multiplies each element of this matrix by the specified scalar.
      *
      * @param scalar the scalar value to multiply
+     * @return this matrix
      */
-    void multiply(int scalar);
+    V multiply(int scalar);
     
     /**
      * Divides each element of this matrix by the specified scalar.
      *
      * @param scalar the scalar value to divide
+     * @return this matrix
      */
-    void divide(int scalar);
+    V divide(int scalar);
     
     /**
      * Computes the determinant of this matrix.

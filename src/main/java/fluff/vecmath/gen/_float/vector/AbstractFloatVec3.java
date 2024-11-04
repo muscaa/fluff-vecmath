@@ -35,12 +35,13 @@ public abstract class AbstractFloatVec3<V extends AbstractFloatVec3<V>> implemen
      * @param proj_1 the value to set for the first component
      * @param proj_2 the value to set for the second component
      * @param proj_3 the value to set for the third component
+     * @return this vector
      */
-    protected abstract void set(float proj_1, float proj_2, float proj_3);
+    protected abstract V set(float proj_1, float proj_2, float proj_3);
     
     @Override
-    public void add(float scalar) {
-        set(
+    public V add(float scalar) {
+        return set(
                 proj_1() + scalar,
                 proj_2() + scalar,
                 proj_3() + scalar
@@ -48,8 +49,8 @@ public abstract class AbstractFloatVec3<V extends AbstractFloatVec3<V>> implemen
     }
     
     @Override
-    public void subtract(float scalar) {
-        set(
+    public V subtract(float scalar) {
+        return set(
                 proj_1() - scalar,
                 proj_2() - scalar,
                 proj_3() - scalar
@@ -57,8 +58,8 @@ public abstract class AbstractFloatVec3<V extends AbstractFloatVec3<V>> implemen
     }
     
     @Override
-    public void multiply(float scalar) {
-        set(
+    public V multiply(float scalar) {
+        return set(
                 proj_1() * scalar,
                 proj_2() * scalar,
                 proj_3() * scalar
@@ -66,8 +67,8 @@ public abstract class AbstractFloatVec3<V extends AbstractFloatVec3<V>> implemen
     }
     
     @Override
-    public void divide(float scalar) {
-        set(
+    public V divide(float scalar) {
+        return set(
                 proj_1() / scalar,
                 proj_2() / scalar,
                 proj_3() / scalar
@@ -75,8 +76,8 @@ public abstract class AbstractFloatVec3<V extends AbstractFloatVec3<V>> implemen
     }
     
     @Override
-    public void add(V vec) {
-        set(
+    public V add(V vec) {
+        return set(
                 proj_1() + vec.proj_1(),
                 proj_2() + vec.proj_2(),
                 proj_3() + vec.proj_3()
@@ -84,8 +85,8 @@ public abstract class AbstractFloatVec3<V extends AbstractFloatVec3<V>> implemen
     }
     
     @Override
-    public void subtract(V vec) {
-        set(
+    public V subtract(V vec) {
+        return set(
                 proj_1() - vec.proj_1(),
                 proj_2() - vec.proj_2(),
                 proj_3() - vec.proj_3()
@@ -93,8 +94,8 @@ public abstract class AbstractFloatVec3<V extends AbstractFloatVec3<V>> implemen
     }
     
     @Override
-    public void multiply(V vec) {
-        set(
+    public V multiply(V vec) {
+        return set(
                 proj_1() * vec.proj_1(),
                 proj_2() * vec.proj_2(),
                 proj_3() * vec.proj_3()
@@ -102,8 +103,8 @@ public abstract class AbstractFloatVec3<V extends AbstractFloatVec3<V>> implemen
     }
     
     @Override
-    public void divide(V vec) {
-        set(
+    public V divide(V vec) {
+        return set(
                 proj_1() / vec.proj_1(),
                 proj_2() / vec.proj_2(),
                 proj_3() / vec.proj_3()
@@ -122,9 +123,10 @@ public abstract class AbstractFloatVec3<V extends AbstractFloatVec3<V>> implemen
      * Performs a cross product with the given vector and sets the result to this vector.
      *
      * @param vec the vector to cross with
+     * @return this vector
      */
-    public void crossMultiply(V vec) {
-        set(
+    public V crossMultiply(V vec) {
+        return set(
                 proj_2() * vec.proj_3() - proj_3() * vec.proj_2(),
                 proj_3() * vec.proj_1() - proj_1() * vec.proj_3(),
                 proj_1() * vec.proj_2() - proj_2() * vec.proj_1()
@@ -132,8 +134,8 @@ public abstract class AbstractFloatVec3<V extends AbstractFloatVec3<V>> implemen
     }
     
     @Override
-    public void absolute() {
-        set(
+    public V absolute() {
+        return set(
                 Math.abs(proj_1()),
                 Math.abs(proj_2()),
                 Math.abs(proj_3())
@@ -141,8 +143,8 @@ public abstract class AbstractFloatVec3<V extends AbstractFloatVec3<V>> implemen
     }
     
     @Override
-    public void negate() {
-        set(
+    public V negate() {
+        return set(
                 -proj_1(),
                 -proj_2(),
                 -proj_3()
@@ -159,11 +161,11 @@ public abstract class AbstractFloatVec3<V extends AbstractFloatVec3<V>> implemen
     }
     
     @Override
-    public void normalise() {
+    public V normalise() {
         double mag = magnitude();
-        if (mag == 0.0) return;
+        if (mag == 0.0) return (V) this;
         
-        set(
+        return set(
                 (float ) (proj_1() / mag),
                 (float ) (proj_2() / mag),
                 (float ) (proj_3() / mag)

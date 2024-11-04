@@ -27,68 +27,69 @@ public abstract class AbstractIntVec2<V extends AbstractIntVec2<V>> implements I
      *
      * @param proj_1 the value to set for the first component
      * @param proj_2 the value to set for the second component
+     * @return this vector
      */
-    protected abstract void set(int proj_1, int proj_2);
+    protected abstract V set(int proj_1, int proj_2);
     
     @Override
-    public void add(int scalar) {
-        set(
+    public V add(int scalar) {
+        return set(
                 proj_1() + scalar,
                 proj_2() + scalar
                 );
     }
     
     @Override
-    public void subtract(int scalar) {
-        set(
+    public V subtract(int scalar) {
+        return set(
                 proj_1() - scalar,
                 proj_2() - scalar
                 );
     }
     
     @Override
-    public void multiply(int scalar) {
-        set(
+    public V multiply(int scalar) {
+        return set(
                 proj_1() * scalar,
                 proj_2() * scalar
                 );
     }
     
     @Override
-    public void divide(int scalar) {
-        set(
+    public V divide(int scalar) {
+        return set(
                 proj_1() / scalar,
                 proj_2() / scalar
                 );
     }
     
     @Override
-    public void add(V vec) {
-        set(
+    public V add(V vec) {
+        return set(
                 proj_1() + vec.proj_1(),
                 proj_2() + vec.proj_2()
                 );
     }
     
     @Override
-    public void subtract(V vec) {
-        set(
+    public V subtract(V vec) {
+        return set(
                 proj_1() - vec.proj_1(),
                 proj_2() - vec.proj_2()
                 );
     }
     
     @Override
-    public void multiply(V vec) {
-        set(
+    public V multiply(V vec) {
+        return set(
                 proj_1() * vec.proj_1(),
                 proj_2() * vec.proj_2()
                 );
     }
     
     @Override
-    public void divide(V vec) {
-        set(
+    public V divide(V vec) {
+        return set(
                 proj_1() / vec.proj_1(),
                 proj_2() / vec.proj_2()
                 );
@@ -102,16 +103,16 @@ public abstract class AbstractIntVec2<V extends AbstractIntVec2<V>> implements I
     }
     
     @Override
-    public void absolute() {
-        set(
+    public V absolute() {
+        return set(
                 Math.abs(proj_1()),
                 Math.abs(proj_2())
                 );
     }
     
     @Override
-    public void negate() {
-        set(
+    public V negate() {
+        return set(
                 -proj_1(),
                 -proj_2()
                 );
@@ -126,11 +127,11 @@ public abstract class AbstractIntVec2<V extends AbstractIntVec2<V>> implements I
     }
     
     @Override
-    public void normalise() {
+    public V normalise() {
         double mag = magnitude();
-        if (mag == 0.0) return;
+        if (mag == 0.0) return (V) this;
         
-        set(
+        return set(
                 (int ) (proj_1() / mag),
                 (int ) (proj_2() / mag)
                 );

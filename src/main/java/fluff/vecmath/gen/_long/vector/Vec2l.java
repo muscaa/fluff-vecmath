@@ -45,9 +45,10 @@ public class Vec2l extends AbstractLongVec2<Vec2l> {
     }
     
     @Override
-    protected void set(long proj_1, long proj_2) {
+    protected Vec2l set(long proj_1, long proj_2) {
         this.x = proj_1;
         this.y = proj_2;
+        return this;
     }
     
     @Override

@@ -45,9 +45,10 @@ public class Vec2n extends AbstractNumberVec2<Vec2n> {
     }
     
     @Override
-    protected void set(/*number*/double proj_1, /*number*/double proj_2) {
+    protected Vec2n set(/*number*/double proj_1, /*number*/double proj_2) {
         this.x = proj_1;
         this.y = proj_2;
+        return this;
     }
     
     @Override

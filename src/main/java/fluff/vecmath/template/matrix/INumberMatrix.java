@@ -13,29 +13,33 @@ public interface INumberMatrix<V extends INumberMatrix<V>> extends IMatrix<V> {
      * Adds the specified scalar to each element of this matrix.
      *
      * @param scalar the scalar value to be added
+     * @return this matrix
      */
-    void add(/*number*/double scalar);
+    V add(/*number*/double scalar);
     
     /**
      * Subtracts the specified scalar from each element of this matrix.
      *
      * @param scalar the scalar value to be subtracted
+     * @return this matrix
      */
-    void subtract(/*number*/double scalar);
+    V subtract(/*number*/double scalar);
     
     /**
      * Multiplies each element of this matrix by the specified scalar.
      *
      * @param scalar the scalar value to multiply
+     * @return this matrix
      */
-    void multiply(/*number*/double scalar);
+    V multiply(/*number*/double scalar);
     
     /**
      * Divides each element of this matrix by the specified scalar.
      *
      * @param scalar the scalar value to divide
+     * @return this matrix
      */
-    void divide(/*number*/double scalar);
+    V divide(/*number*/double scalar);
     
     /**
      * Computes the determinant of this matrix.

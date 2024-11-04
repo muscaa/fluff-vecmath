@@ -13,29 +13,33 @@ public interface ILongMatrix<V extends ILongMatrix<V>> extends IMatrix<V> {
      * Adds the specified scalar to each element of this matrix.
      *
      * @param scalar the scalar value to be added
+     * @return this matrix
      */
-    void add(long scalar);
+    V add(long scalar);
     
     /**
      * Subtracts the specified scalar from each element of this matrix.
      *
      * @param scalar the scalar value to be subtracted
+     * @return this matrix
      */
-    void subtract(long scalar);
+    V subtract(long scalar);
     
     /**
      * Multiplies each element of this matrix by the specified scalar.
      *
      * @param scalar the scalar value to multiply
+     * @return this matrix
      */
-    void multiply(long scalar);
+    V multiply(long scalar);
     
     /**
      * Divides each element of this matrix by the specified scalar.
      *
      * @param scalar the scalar value to divide
+     * @return this matrix
      */
-    void divide(long scalar);
+    V divide(long scalar);
     
     /**
      * Computes the determinant of this matrix.

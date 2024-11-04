@@ -13,27 +13,31 @@ public interface ILongVector<V extends ILongVector<V>> extends IVector<V> {
      * Adds a scalar value to this vector.
      *
      * @param scalar the scalar value to add
+     * @return this vector
      */
-    void add(long scalar);
+    V add(long scalar);
     
     /**
      * Subtracts a scalar value from this vector.
      *
      * @param scalar the scalar value to subtract
+     * @return this vector
      */
-    void subtract(long scalar);
+    V subtract(long scalar);
     
     /**
      * Multiplies this vector by a scalar value.
      *
      * @param scalar the scalar value to multiply by
+     * @return this vector
      */
-    void multiply(long scalar);
+    V multiply(long scalar);
     
     /**
      * Divides this vector by a scalar value.
      *
      * @param scalar the scalar value to divide by
+     * @return this vector
      */
-    void divide(long scalar);
+    V divide(long scalar);
 }

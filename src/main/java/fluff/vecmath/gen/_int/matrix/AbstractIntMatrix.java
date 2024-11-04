@@ -19,7 +19,7 @@ public abstract class AbstractIntMatrix<V extends AbstractIntMatrix<V>> implemen
      *
      * @param matrix a 2D array representing the new matrix
      */
-    protected abstract void set(int [][] matrix);
+    protected abstract V set(int [][] matrix);
     
     /**
      * Returns the value at the specified row and column.
@@ -38,9 +38,11 @@ public abstract class AbstractIntMatrix<V extends AbstractIntMatrix<V>> implemen
      * @param row the row index
      * @param column the column index
      * @param value the value to set
+     * @return this matrix
      */
-    public void set(int row, int column, int value) {
+    public V set(int row, int column, int value) {
         get()[row][column] = value;
+        return (V) this;
     }
     
     /**
@@ -54,7 +56,7 @@ public abstract class AbstractIntMatrix<V extends AbstractIntMatrix<V>> implemen
     }
     
     @Override
-    public void add(int scalar) {
+    public V add(int scalar) {
         for (int i = 0; i < getRows(); i++) {
             for (int j = 0; j < getColumns(); j++) {
                 set(i, j,
@@ -62,10 +64,11 @@ public abstract class AbstractIntMatrix<V extends AbstractIntMatrix<V>> implemen
                 		);
             }
         }
+        return (V) this;
     }
     
     @Override
-    public void subtract(int scalar) {
+    public V subtract(int scalar) {
         for (int i = 0; i < getRows(); i++) {
             for (int j = 0; j < getColumns(); j++) {
                 set(i, j,
@@ -73,10 +76,11 @@ public abstract class AbstractIntMatrix<V extends AbstractIntMatrix<V>> implemen
                 		);
             }
         }
+        return (V) this;
     }
     
     @Override
-    public void multiply(int scalar) {
+    public V multiply(int scalar) {
         for (int i = 0; i < getRows(); i++) {
             for (int j = 0; j < getColumns(); j++) {
                 set(i, j,
@@ -84,10 +88,11 @@ public abstract class AbstractIntMatrix<V extends AbstractIntMatrix<V>> implemen
                 		);
             }
         }
+        return (V) this;
     }
     
     @Override
-    public void divide(int scalar) {
+    public V divide(int scalar) {
         for (int i = 0; i < getRows(); i++) {
             for (int j = 0; j < getColumns(); j++) {
                 set(i, j,
@@ -95,10 +100,11 @@ public abstract class AbstractIntMatrix<V extends AbstractIntMatrix<V>> implemen
                 		);
             }
         }
+        return (V) this;
     }
     
     @Override
-    public void add(V mat) {
+    public V add(V mat) {
         int rows = Math.min(getRows(), mat.getRows());
         int cols = Math.min(getColumns(), mat.getColumns());
         
@@ -109,10 +115,11 @@ public abstract class AbstractIntMatrix<V extends AbstractIntMatrix<V>> implemen
                 		);
             }
         }
+        return (V) this;
     }
     
     @Override
-    public void subtract(V mat) {
+    public V subtract(V mat) {
         int rows = Math.min(getRows(), mat.getRows());
         int cols = Math.min(getColumns(), mat.getColumns());
         
@@ -123,10 +130,11 @@ public abstract class AbstractIntMatrix<V extends AbstractIntMatrix<V>> implemen
                 		);
             }
         }
+        return (V) this;
     }
     
     @Override
-    public void multiply(V mat) {
+    public V multiply(V mat) {
         int rows = Math.min(getRows(), mat.getRows());
         int cols = Math.min(getColumns(), mat.getColumns());
         
@@ -137,10 +145,11 @@ public abstract class AbstractIntMatrix<V extends AbstractIntMatrix<V>> implemen
                 		);
             }
         }
+        return (V) this;
     }
     
     @Override
-    public void divide(V mat) {
+    public V divide(V mat) {
         int rows = Math.min(getRows(), mat.getRows());
         int cols = Math.min(getColumns(), mat.getColumns());
         
@@ -151,10 +160,11 @@ public abstract class AbstractIntMatrix<V extends AbstractIntMatrix<V>> implemen
                 		);
             }
         }
+        return (V) this;
     }
     
     @Override
-    public void crossMultiply(V mat) {
+    public V crossMultiply(V mat) {
         int [][] newMatrix = new int [getRows()][mat.getColumns()];
         
         for (int i = 0; i < getRows(); i++) {
@@ -165,11 +175,11 @@ public abstract class AbstractIntMatrix<V extends AbstractIntMatrix<V>> implemen
             }
         }
         
-        set(newMatrix);
+        return set(newMatrix);
     }
     
     @Override
-    public void absolute() {
+    public V absolute() {
         for (int i = 0; i < getRows(); i++) {
             for (int j = 0; j < getColumns(); j++) {
                 set(i, j,
@@ -177,10 +187,11 @@ public abstract class AbstractIntMatrix<V extends AbstractIntMatrix<V>> implemen
                 		);
             }
         }
+        return (V) this;
     }
     
     @Override
-    public void negate() {
+    public V negate() {
         for (int i = 0; i < getRows(); i++) {
             for (int j = 0; j < getColumns(); j++) {
                 set(i, j,
@@ -188,10 +199,11 @@ public abstract class AbstractIntMatrix<V extends AbstractIntMatrix<V>> implemen
                 		);
             }
         }
+        return (V) this;
     }
     
     @Override
-    public void transpose() {
+    public V transpose() {
         int [][] newMatrix = new int [getColumns()][getRows()];
         
         for (int i = 0; i < getRows(); i++) {
@@ -200,7 +212,7 @@ public abstract class AbstractIntMatrix<V extends AbstractIntMatrix<V>> implemen
             }
         }
         
-        set(newMatrix);
+        return set(newMatrix);
     }
     
     @Override

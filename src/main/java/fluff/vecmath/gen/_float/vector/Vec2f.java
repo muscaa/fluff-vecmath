@@ -45,9 +45,10 @@ public class Vec2f extends AbstractFloatVec2<Vec2f> {
     }
     
     @Override
-    protected void set(float proj_1, float proj_2) {
+    protected Vec2f set(float proj_1, float proj_2) {
         this.x = proj_1;
         this.y = proj_2;
+        return this;
     }
     
     @Override

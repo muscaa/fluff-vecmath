@@ -45,9 +45,10 @@ public class Vec2d extends AbstractDoubleVec2<Vec2d> {
     }
     
     @Override
-    protected void set(double proj_1, double proj_2) {
+    protected Vec2d set(double proj_1, double proj_2) {
         this.x = proj_1;
         this.y = proj_2;
+        return this;
     }
     
     @Override

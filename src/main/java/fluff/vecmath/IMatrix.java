@@ -11,56 +11,69 @@ public interface IMatrix<V extends IMatrix<V>> extends IMath<V> {
      * Adds the given matrix to this matrix.
      *
      * @param mat the matrix to be added
+     * @return this matrix
      */
-    void add(V mat);
+    V add(V mat);
     
     /**
      * Subtracts the given matrix from this matrix.
      *
      * @param mat the matrix to be subtracted
+     * @return this matrix
      */
-    void subtract(V mat);
+    V subtract(V mat);
     
     /**
      * Multiplies this matrix by the given matrix element-wise.
      *
      * @param mat the matrix to be multiplied
+     * @return this matrix
      */
-    void multiply(V mat);
+    V multiply(V mat);
     
     /**
      * Divides this matrix by the given matrix element-wise.
      *
      * @param mat the matrix to be divided
+     * @return this matrix
      */
-    void divide(V mat);
+    V divide(V mat);
     
     /**
      * Multiplies this matrix by the given matrix using matrix multiplication.
      *
      * @param mat the matrix to be multiplied
+     * @return this matrix
      */
-    void crossMultiply(V mat);
+    V crossMultiply(V mat);
     
     /**
      * Inverts this matrix.
+     * 
+     * @return this matrix
      */
-    void invert();
+    V invert();
     
     /**
      * Converts all elements of this matrix to their absolute values.
+     * 
+     * @return this matrix
      */
-    void absolute();
+    V absolute();
     
     /**
      * Negates all elements of this matrix.
+     * 
+     * @return this matrix
      */
-    void negate();
+    V negate();
     
     /**
      * Transposes this matrix.
+     * 
+     * @return this matrix
      */
-    void transpose();
+    V transpose();
     
     /**
      * Checks if this matrix is a square matrix (number of rows equals number of columns).

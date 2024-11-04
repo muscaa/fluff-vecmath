@@ -13,27 +13,31 @@ public interface INumberVector<V extends INumberVector<V>> extends IVector<V> {
      * Adds a scalar value to this vector.
      *
      * @param scalar the scalar value to add
+     * @return this vector
      */
-    void add(/*number*/double scalar);
+    V add(/*number*/double scalar);
     
     /**
      * Subtracts a scalar value from this vector.
      *
      * @param scalar the scalar value to subtract
+     * @return this vector
      */
-    void subtract(/*number*/double scalar);
+    V subtract(/*number*/double scalar);
     
     /**
      * Multiplies this vector by a scalar value.
      *
      * @param scalar the scalar value to multiply by
+     * @return this vector
      */
-    void multiply(/*number*/double scalar);
+    V multiply(/*number*/double scalar);
     
     /**
      * Divides this vector by a scalar value.
      *
      * @param scalar the scalar value to divide by
+     * @return this vector
      */
-    void divide(/*number*/double scalar);
+    V divide(/*number*/double scalar);
 }

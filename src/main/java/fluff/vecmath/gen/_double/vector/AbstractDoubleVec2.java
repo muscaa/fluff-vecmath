@@ -27,68 +27,69 @@ public abstract class AbstractDoubleVec2<V extends AbstractDoubleVec2<V>> implem
      *
      * @param proj_1 the value to set for the first component
      * @param proj_2 the value to set for the second component
+     * @return this vector
      */
-    protected abstract void set(double proj_1, double proj_2);
+    protected abstract V set(double proj_1, double proj_2);
     
     @Override
-    public void add(double scalar) {
-        set(
+    public V add(double scalar) {
+        return set(
                 proj_1() + scalar,
                 proj_2() + scalar
                 );
     }
     
     @Override
-    public void subtract(double scalar) {
-        set(
+    public V subtract(double scalar) {
+        return set(
                 proj_1() - scalar,
                 proj_2() - scalar
                 );
     }
     
     @Override
-    public void multiply(double scalar) {
-        set(
+    public V multiply(double scalar) {
+        return set(
                 proj_1() * scalar,
                 proj_2() * scalar
                 );
     }
     
     @Override
-    public void divide(double scalar) {
-        set(
+    public V divide(double scalar) {
+        return set(
                 proj_1() / scalar,
                 proj_2() / scalar
                 );
     }
     
     @Override
-    public void add(V vec) {
-        set(
+    public V add(V vec) {
+        return set(
                 proj_1() + vec.proj_1(),
                 proj_2() + vec.proj_2()
                 );
     }
     
     @Override
-    public void subtract(V vec) {
-        set(
+    public V subtract(V vec) {
+        return set(
                 proj_1() - vec.proj_1(),
                 proj_2() - vec.proj_2()
                 );
     }
     
     @Override
-    public void multiply(V vec) {
-        set(
+    public V multiply(V vec) {
+        return set(
                 proj_1() * vec.proj_1(),
                 proj_2() * vec.proj_2()
                 );
     }
     
     @Override
-    public void divide(V vec) {
-        set(
+    public V divide(V vec) {
+        return set(
                 proj_1() / vec.proj_1(),
                 proj_2() / vec.proj_2()
                 );
@@ -102,16 +103,16 @@ public abstract class AbstractDoubleVec2<V extends AbstractDoubleVec2<V>> implem
     }
     
     @Override
-    public void absolute() {
-        set(
+    public V absolute() {
+        return set(
                 Math.abs(proj_1()),
                 Math.abs(proj_2())
                 );
     }
     
     @Override
-    public void negate() {
-        set(
+    public V negate() {
+        return set(
                 -proj_1(),
                 -proj_2()
                 );
@@ -126,11 +127,11 @@ public abstract class AbstractDoubleVec2<V extends AbstractDoubleVec2<V>> implem
     }
     
     @Override
-    public void normalise() {
+    public V normalise() {
         double mag = magnitude();
-        if (mag == 0.0) return;
+        if (mag == 0.0) return (V) this;
         
-        set(
+        return set(
                 (double ) (proj_1() / mag),
                 (double ) (proj_2() / mag)
                 );

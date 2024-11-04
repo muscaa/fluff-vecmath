@@ -59,12 +59,13 @@ public class Mat33f extends AbstractFloatMatrix<Mat33f> {
     }
     
     @Override
-    protected void set(float [][] matrix) {
+    protected Mat33f set(float [][] matrix) {
         this.matrix = matrix;
+        return this;
     }
     
     @Override
-    public void invert() {
+    public Mat33f invert() {
         float det = determinant();
         if (det == 0) throw new MathException("Matrix is not invertible!");
         
@@ -79,7 +80,7 @@ public class Mat33f extends AbstractFloatMatrix<Mat33f> {
         newMatrix[2][1] = (get(0, 1) * get(2, 0) - get(0, 0) * get(2, 1)) / det;
         newMatrix[2][2] = (get(0, 0) * get(1, 1) - get(0, 1) * get(1, 0)) / det;
         
-        set(newMatrix);
+        return set(newMatrix);
     }
     
     @Override

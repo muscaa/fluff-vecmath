@@ -56,10 +56,11 @@ public class Vec3d extends AbstractDoubleVec3<Vec3d> {
     }
     
     @Override
-    protected void set(double proj_1, double proj_2, double proj_3) {
+    protected Vec3d set(double proj_1, double proj_2, double proj_3) {
         this.x = proj_1;
         this.y = proj_2;
         this.z = proj_3;
+        return this;
     }
     
     @Override
